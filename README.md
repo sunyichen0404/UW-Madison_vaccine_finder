@@ -1,5 +1,5 @@
 # UW-Madison_vaccine_finder
-If you are a student employee in UW-Madison, then you can start looking for those shots starting from 3/30. This script will help you in your search.
+If you are a student employee in UW-Madison, then you can start looking for those shots starting from 3/29. This script will help you in your search.
 
 script dependencies: selenium, tkinter, datetime, time
 
