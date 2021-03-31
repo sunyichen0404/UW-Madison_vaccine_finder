@@ -85,7 +85,7 @@ def start():
     submit_button.click()
     today = datetime.today()
 
-    for i in range(8):
+    for i in range(12):
         new_date = today + timedelta(7*(i+1))
         date_str = new_date.strftime('%Y-%m-%d')
         url = 'https://myuhs.uhs.wisc.edu/appointments_book_list_available.aspx?startDate=' + date_str
