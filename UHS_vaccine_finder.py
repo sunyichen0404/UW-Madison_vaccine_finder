@@ -3,6 +3,7 @@ import time
 from datetime import datetime, timedelta
 import tkinter as tk
 
+#tkinter set up
 window = tk.Tk()
 greeting = tk.Label(text="Hello, Student Badger Employee!")
 L1 = tk.Label(window, text="UW NetID")
@@ -26,13 +27,14 @@ birth_year = tk.Entry(window, text="Birth Year", bd=5)
 birth_day.place(x=140, y=00)
 birth_month.place(x=140, y=20)
 birth_year.place(x=140, y=40)
+#show results
 def print_result(p_v, date_str):
     if p_v == 0:
         myLabel = tk.Label(window, text='No appointment in the week of ' + date_str)
     if p_v == 1:
         myLabel = tk.Label(window, text="There is an appointment in the week of " + date_str + " go make an appointment!")
     myLabel.pack()
-
+#automates enteries/clicking in UHS portal
 def start():
     uwid = id.get()
     passworD = password.get()
@@ -84,8 +86,8 @@ def start():
     submit_button = driver.find_element_by_name('cmdStandardProceed')
     submit_button.click()
     today = datetime.today()
-
-    for i in range(12):
+#try up to 12 weeks
+    for i in range(13):
         new_date = today + timedelta(7*(i+1))
         date_str = new_date.strftime('%Y-%m-%d')
         url = 'https://myuhs.uhs.wisc.edu/appointments_book_list_available.aspx?startDate=' + date_str
