@@ -38,9 +38,9 @@ def print_result(p_v, date_str):
 def start():
     uwid = id.get()
     passworD = password.get()
-    month = birth_month.get()
-    day = birth_day.get()
-    year = birth_year.get()
+    month = str(int(birth_month.get())+1)
+    day = str(int(birth_day.get())+1)
+    year = str(int(birth_year.get()))
     url = 'https://myuhs.uhs.wisc.edu/login_dualauthentication.aspx'
     driver = webdriver.Chrome('chromedriver.exe')
     driver.get(url)
@@ -53,9 +53,9 @@ def start():
     log_in_button = driver.find_element_by_name('_eventId_proceed')
     driver.execute_script("arguments[0].click();", log_in_button)
     time.sleep(15)
-    select_month = driver.find_element_by_xpath('/html/body/div['+ month +']/div/div[2]/form/table[1]/tbody/tr/td/select[1]/option[5]')
+    select_month = driver.find_element_by_xpath('/html/body/div[4]/div/div[2]/form/table[1]/tbody/tr/td/select[1]/option['+ month +']')
     select_month.click()
-    select_day = driver.find_element_by_xpath('/html/body/div[' + day +']/div/div[2]/form/table[1]/tbody/tr/td/select[2]/option[5]')
+    select_day = driver.find_element_by_xpath('/html/body/div[4]/div/div[2]/form/table[1]/tbody/tr/td/select[2]/option['+ day +']')
     select_day.click()
     year_entry = driver.find_element_by_name('dtDOBYR')
     year_entry.send_keys(year)
@@ -100,6 +100,7 @@ def start():
             p_v = 1
             print_result(p_v, date_str)
             break
+    return(driver)
 
 btn = tk.Button(window, text="Find Does 1 Appointment", fg='blue', command=start)
 btn.place(x=120, y=100)
