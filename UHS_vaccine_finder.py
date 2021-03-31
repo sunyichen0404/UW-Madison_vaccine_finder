@@ -87,8 +87,8 @@ def start():
     submit_button.click()
     today = datetime.today()
 #try up to 12 weeks
-    for i in range(13):
-        new_date = today + timedelta(7*(i+1))
+    for i in range(14):
+        new_date = today + timedelta(7*(i))
         date_str = new_date.strftime('%Y-%m-%d')
         url = 'https://myuhs.uhs.wisc.edu/appointments_book_list_available.aspx?startDate=' + date_str
         driver.get(url)
